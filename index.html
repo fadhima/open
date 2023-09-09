@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        
+     <script src="script/config.js" defer></script>
+     <scrip src="script/app.js" defer></scrip>
+     <script src="script/main.js" defer></script>
+     <style>
+    *{
+        margin : 0;
+        padding: 0;
+        box-sizing: border-box;
+        
+    }
+
+
+    body{
+        --color-primary: #f76c5e;
+        --color-secondary: #f68e5f;
+        --color-tertiary: #ffeee6;
+    }
+
+    h1{
+        margin: 10px;
+        font-size: 30px;
+        font-weight: 600;
+        color: var(--color-secondary);
+
+    }
+
+    h2 {
+        margin: 10px;
+        font-size: 30px;
+        font-weight: 500;
+        color: var(--color-secondary)
+    }
+
+    h3 {
+
+        margin: 10px;
+        font-size: 17px;
+        font-weight: 500;
+        color: var(--color-secondary);
+    }
+
+    input[tyoe='radio']{
+        filter: grayscale(1);
+    }
+    input[type='text'],
+    input[type='email']{
+        width:100%;
+        margin-right: 10px;
+        padding: 5px;
+        border: none;
+        border-radius: 8px;
+        font-size:17px;
+        font-weight: 600;
+        color: #f76c5e;
+
+    }
+    input[type='text']::placeholder,
+    input[type='email']::placeholder {
+        color: var(--color-secondary);
+        opacity: 50%;
+    }
+ button{
+    padding: 5px;
+    border:none;
+    border-radius: 8px;
+    font-family: 'Roboto' , sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-secondary);
+    background-color: white;
+
+
+ }
+
+ button:hover{
+    color: var(--color-primary);
+    background-color: var(--color-tertiary);
+    cursor: pointer;
+ }
+button:focus {
+    background-color: var(--color-tertiary);
+    border: 3px solid var(--color-primary);
+    padding: 2px;
+}
+
+body {
+
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width:75%;
+    height: 75%;
+    
+    margin-bottom: 50px;
+    padding:100px;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    font-weight: 500;
+    border-radius: 30px;
+    background-color: var(--color-secondary);
+}
+
+footer {
+
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 40px;
+    color:white;
+    background-color: var(--color-secondary);
+}
+/**
+mise en forme des element de la zone principale
+*/
+
+/* Zone d'option */
+
+.optionSource{
+    margin: 20px;
+
+}
+.optionSource input[type='radio']:not(:first-child){
+    margin-left: 20px;
+}
+
+/* Zone ou sera affiche le texte (mot ou phrase)
+*/
+.zoneProposition{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+    margin: 10px 0 10px 0;
+    padding: 20px;
+    padding: 20px;
+    border: 3px solid var(--color-primary);
+    border-radius: 20px;
+    background-color: white;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+.zonesaisie {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30px;
+    border: 3px solid var(--color-primary);
+}
+.zonesaisie input[type='text']{
+    
+    width: 80%;
+
+}
+.zonesaisie button {
+    width : 20%;
+}
+.zonescore{
+    font-size: 20px;
+}
+
+.popuBackground{
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255,0);
+}
+
+/* Gestion des propos */
+.popup{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    font-size: 17px;
+    font-weight: 500;
+    background-color: #f76c5e;
+    border-radius: 30px;
+    z-index: 1;
+ 
+}
+
+.popup div {
+    font-size : 25px;
+    padding-bottom: 15px;
+    padding: 5px;
+}
+.popup input {
+
+    margin-bottom: 10px;
+}
+.popup button {
+    margin: 5px;
+}
+
+@media scren and (max-width: 1200px){
+    main{
+        width: 60%;
+        padding: 30px;
+    }
+}
+@media screen and (max-width: 800px){
+    main {
+        width: 90px;
+        padding:10px;
+    }
+}
+
+ </style>
+   
+   
+</head>
+
+    <body>
+            
+        <header>
+
+            <h1>AzerType</h1>
+            <h2> L'application pour ecrire plus vite !</h2>
+            <h3>AzerType est une application pour apprendr à taper plus vite :) </h3>
+
+        </header>
+<!--Main-->
+        <main>
+            <div id="ZoneOptions">
+                <p>choisissez votre option et taper la proposition qui s'affiche dans le champ en-dessous </p>
+        
+            <div classe="optionSource">
+                <input type="radio" name="optionSource" id="mots" value="1" checked>
+                <label for="mots">Mots</label>
+                <input type="radio" name="optionSource" id="phrases" value="2">
+                <label for="phrases">Phrases</label>
+            </div>
+
+            <div classe="zoneProposition">
+                Azerty
+            </div>  
+
+               <div classe="zonesaisie">
+
+                    <input type="text" id="inputEcriture" name="inputecriture">
+                    <button id="btnvaliderMot">Valider</button>
+
+            </div>
+
+            <div class="zonescore">
+                Votre score : <span>0</span>
+            </div>
+
+            <div class="zonePartage">
+
+                <button>Partager</button>
+
+            </div>
+
+        </main>
+<!-- Footer-->
+        <footer>
+
+                @Copyright : Openclassroms.
+
+        </footer>
+
+        <div class="popuBackground">
+            <div class="popup">
+                <div>Partager votre score</div>
+                <form novalidate>
+                    <label for="nom">Votre nom</label>
+                    <input type="text" id="nom" placeholder="Votre nom">
+                    <label for="email">Avec qui voulez partager votre score ?</label>
+                    <input type="email" name="email" id="email" placeholder="nom@domaine.com">
+                    <button id="btnEnvoyerMail">Envoyer</button>
+                 </form>
+             </div>
+            </div>
+            
+            
+    </body>
+    </html>
